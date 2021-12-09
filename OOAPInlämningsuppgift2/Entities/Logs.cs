@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
-        public Location Location { get; set; }
         public Event Event { get; set; }
         public Tenant Tenant { get; set; }
+        public Door Door { get; set; }
     }
 }
