@@ -3,6 +3,6 @@
     public class Door
     {
         public string Designation { get; set; }
-        public string TagId { get; set; }
+        public List<Tag> Tags { get; set; }
     }
 }
