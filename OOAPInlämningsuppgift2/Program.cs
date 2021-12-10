@@ -1,6 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using OOAPInlämningsuppgift2;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+string connectionString = builder.Configuration.GetConnectionString("HusRumDatabase");
+
+
+builder.Services.AddDbContext<HusRumDbContext>(options =>
+{
+    options.UseSqlServer(connectionString);
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
