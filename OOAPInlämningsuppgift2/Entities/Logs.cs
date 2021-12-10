@@ -7,8 +7,9 @@ namespace OOAPInlämningsuppgift2.Entities
         [Key]
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
-        public Event Event { get; set; }
-        public Tenant Tenant { get; set; }
         public Door Door { get; set; }
+        public Tenant Tenant { get; set; }
+        public Event Event { get; set; }
+
     }
 }
