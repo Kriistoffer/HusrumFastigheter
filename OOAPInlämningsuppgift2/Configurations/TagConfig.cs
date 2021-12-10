@@ -9,8 +9,7 @@ namespace OOAPInlämningsuppgift2.Configurations
        
         public void Configure(EntityTypeBuilder<Tag> builder)
         {
-            builder.HasKey(t => t.Id);
-                
+            builder.HasKey(t => t.Id);              
         }
     }
 }
