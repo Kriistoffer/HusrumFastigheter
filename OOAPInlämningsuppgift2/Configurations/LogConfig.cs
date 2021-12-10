@@ -8,7 +8,15 @@ namespace OOAPInlämningsuppgift2.Configurations
     {
         public void Configure(EntityTypeBuilder<Logs> builder)
         {
-            builder.Property(l => l.Id)
+            builder.Property(x => x.Id)
+                .IsRequired();
+            builder.Property(d => d.DateTime)
+                .IsRequired();
+            builder.Property(e => e.Event)
+                .IsRequired();
+            builder.Property(t => t.Tenant)
+                .IsRequired();
+            builder.Property(d => d.Door)
                 .IsRequired();
         }
     }

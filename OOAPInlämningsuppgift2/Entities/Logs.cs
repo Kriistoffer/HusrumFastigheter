@@ -1,7 +1,10 @@
-﻿namespace OOAPInlämningsuppgift2.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace OOAPInlämningsuppgift2.Entities
 {
     public class Logs
     {
+        [Key]
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
         public Event Event { get; set; }
