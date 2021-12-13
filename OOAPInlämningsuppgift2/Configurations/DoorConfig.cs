@@ -10,10 +10,12 @@ namespace OOAPInlämningsuppgift2.Configurations
         {
             builder
                 .HasKey(d => d.Designation);
-            builder
-                .Property(d => d.Tags)
-                .IsRequired();
-             
+
+            builder.HasMany(d => d.Tags)
+                .WithMany(t => t.Doors);
+
+                
+
         }
     }
 }
