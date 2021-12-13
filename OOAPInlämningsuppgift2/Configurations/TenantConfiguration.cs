@@ -8,15 +8,20 @@ namespace OOAPInlämningsuppgift2.Configurations
     {
         public void Configure(EntityTypeBuilder<Tenant> builder)
         {
-            builder.Property(t => t.Id)
+            builder
+                .HasKey
 
-            builder.Property(t => t.ApartmentNumber)
+            builder
+                .Property(t => t.ApartmentNumber);
 
-            builder.Property(t => t.FirstName)
+            builder
+                .Property(t => t.FirstName);
 
-            builder.Property(t => t.LastName)
+            builder
+                .Property(t => t.LastName);
 
-            builder.Property(t => t.Tag)
+            builder
+                .Property(t => t.Tag);
         }
     }
 }
