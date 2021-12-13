@@ -4,7 +4,7 @@ using OOAPInlämningsuppgift2.Entities;
 
 namespace OOAPInlämningsuppgift2.Configurations
 {
-    public class DoorConfiguration : IEntityTypeConfiguration<Door>
+    public class DoorConfig : IEntityTypeConfiguration<Door>
     {
         public void Configure(EntityTypeBuilder<Door> builder)
         {
