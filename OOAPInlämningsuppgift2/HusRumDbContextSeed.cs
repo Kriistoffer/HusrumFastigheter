@@ -31,7 +31,7 @@ namespace OOAPInlämningsuppgift2
                 }
                 if (!await husRumDbContext.Tags.AnyAsync())
                 {
-                    await husRumDbContext.Tags.AddRangeAsync();
+                    await husRumDbContext.Tags.AddRangeAsync(GetPreConfiguredTags());
                     await husRumDbContext.SaveChangesAsync();
                 }
                 if (!await husRumDbContext.Tenants.AnyAsync())
@@ -63,6 +63,27 @@ namespace OOAPInlämningsuppgift2
             {
                 return new List<Tag>
                 {
+                    new("0101A","LGH"),
+                    new("0102A","LGH"),
+                    new("0102B","LGH"),
+                    new("0103A","LGH"),
+                    new("0103B","LGH"),
+                    new("0201A","LGH"),
+                    new("0201B","LGH"),
+                    new("0201C","LGH"),
+                    new("0201D","LGH"),
+                    new("0202A","LGH"),
+                    new("0202B","LGH"),
+                    new("0202C","LGH"),
+                    new("0301A","LGH"),
+                    new("0301B","LGH"),
+                    new("0301C","LGH"),
+                    new("0301D","LGH"),
+                    new("0302A","LGH"),
+                    new("0302B","LGH"),
+                    new("0302C","LGH"),
+                    new("0302D","LGH"),
+                    new("VAKT01","VAKT"),
 
                 };
             }
