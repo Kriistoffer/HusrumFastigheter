@@ -8,15 +8,27 @@ namespace OOAPInlämningsuppgift2.Configurations
     {
         public void Configure(EntityTypeBuilder<Logs> builder)
         {
-            builder.Property(x => x.Id)
-                .IsRequired();
+            builder.HasKey(x => x.Id);
+
             builder.Property(d => d.DateTime)
                 .IsRequired();
-            builder.Property(e => e.Event)
+
+            builder.Property(f => f.FirstName)
                 .IsRequired();
-            builder.Property(t => t.Tenant)
+
+            builder.Property(l => l.LastName)
                 .IsRequired();
-            builder.Property(d => d.Door)
+
+            builder.Property(c => c.Code)
+                .IsRequired();
+
+            builder.Property(d => d.Description)
+                .IsRequired();
+
+            builder.Property(t => t.TagId)
+                .IsRequired();
+
+            builder.Property(d => d.Designation)
                 .IsRequired();
         }
     }

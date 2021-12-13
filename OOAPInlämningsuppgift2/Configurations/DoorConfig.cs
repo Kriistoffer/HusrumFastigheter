@@ -11,9 +11,8 @@ namespace OOAPInlämningsuppgift2.Configurations
             builder
                 .HasKey(d => d.Designation);
             builder
-                .Property(d => d.Tags)
-                .IsRequired();
-             
+                .HasMany(d => d.Tags)
+                .WithOne(d => d.Door);
         }
     }
 }

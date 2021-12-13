@@ -10,16 +10,22 @@ namespace OOAPInlämningsuppgift2
         public HusRumDbContext(DbContextOptions<HusRumDbContext> options) : base(options)
         {
         }
-        //public DbSet<Door> Doors { get; set; }
+        public DbSet<Door> Doors { get; set; }
         public DbSet<Event> Events { get; set; }
-        //public DbSet<Logs> Logs { get; set; }
-        //public DbSet<Tag> Tags { get; set; }
-        //public DbSet<Tenant> Tenants { get; set; }
+        public DbSet<Logs> Logs { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Tenant> Tenants { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            base.OnModelCreating(modelbuilder);
-            modelbuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelbuilder.ApplyConfiguration(new DoorConfig());
+            modelbuilder.ApplyConfiguration(new EventConfig());
+            modelbuilder.ApplyConfiguration(new LogConfig());
+            modelbuilder.ApplyConfiguration(new TagConfig());
+            modelbuilder.ApplyConfiguration(new TenantConfig());
+
+            //base.OnModelCreating(modelbuilder);
+            //modelbuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
