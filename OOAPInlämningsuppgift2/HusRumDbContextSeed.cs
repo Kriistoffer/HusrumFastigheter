@@ -21,7 +21,7 @@ namespace OOAPInlämningsuppgift2
                 }
                 if (!await husRumDbContext.Events.AnyAsync())
                 {
-                    await husRumDbContext.Events.AddRangeAsync();
+                    await husRumDbContext.Events.AddRangeAsync(GetPreConfiguredEvents());
                     await husRumDbContext.SaveChangesAsync();
                 }
                 if (!await husRumDbContext.Logs.AnyAsync())
@@ -56,7 +56,10 @@ namespace OOAPInlämningsuppgift2
             {
                 return new List<Event>
                 {
-
+                    new("DÖUT", "Dörr har öppnats utifrån"),
+                    new("DÖIN", "Dörr har öppnats inifrån"),
+                    new("FDIN", "Fel dörr - Gäst har försökt öppna en dörr utan tillstånd"),
+                    new("FDUT", "Fel dörr - Person har försökt gå ut från en dör där taggen ej tillåter")
                 };
             }
             static IEnumerable<Tag> GetPreConfiguredTags()
