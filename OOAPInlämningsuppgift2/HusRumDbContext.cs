@@ -24,8 +24,14 @@ namespace OOAPInlämningsuppgift2
             modelbuilder.ApplyConfiguration(new TagConfig());
             modelbuilder.ApplyConfiguration(new TenantConfig());
 
+            //foreach (var relationship in modelbuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            //{
+            //    relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            //}
+
             //base.OnModelCreating(modelbuilder);
             //modelbuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
     }
 }

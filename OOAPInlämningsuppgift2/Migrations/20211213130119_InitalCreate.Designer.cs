@@ -12,7 +12,7 @@ using OOAPInlämningsuppgift2;
 namespace OOAPInlämningsuppgift2.Migrations
 {
     [DbContext(typeof(HusRumDbContext))]
-    [Migration("20211213105729_InitalCreate")]
+    [Migration("20211213130119_InitalCreate")]
     partial class InitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,10 +24,29 @@ namespace OOAPInlämningsuppgift2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("DoorTag", b =>
+                {
+                    b.Property<string>("DoorsDesignation")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TagsId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("DoorsDesignation", "TagsId");
+
+                    b.HasIndex("TagsId");
+
+                    b.ToTable("DoorTag");
+                });
+
             modelBuilder.Entity("OOAPInlämningsuppgift2.Entities.Door", b =>
                 {
                     b.Property<string>("Designation")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TagId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Designation");
 
@@ -93,13 +112,11 @@ namespace OOAPInlämningsuppgift2.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("DoorDesignation")
+                    b.Property<string>("Designation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DoorDesignation");
 
                     b.ToTable("Tags");
                 });
@@ -135,15 +152,19 @@ namespace OOAPInlämningsuppgift2.Migrations
                     b.ToTable("Tenants");
                 });
 
-            modelBuilder.Entity("OOAPInlämningsuppgift2.Entities.Tag", b =>
+            modelBuilder.Entity("DoorTag", b =>
                 {
-                    b.HasOne("OOAPInlämningsuppgift2.Entities.Door", "Door")
-                        .WithMany("Tags")
-                        .HasForeignKey("DoorDesignation")
+                    b.HasOne("OOAPInlämningsuppgift2.Entities.Door", null)
+                        .WithMany()
+                        .HasForeignKey("DoorsDesignation")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Door");
+                    b.HasOne("OOAPInlämningsuppgift2.Entities.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("OOAPInlämningsuppgift2.Entities.Tenant", b =>
@@ -155,11 +176,6 @@ namespace OOAPInlämningsuppgift2.Migrations
                         .IsRequired();
 
                     b.Navigation("Tag");
-                });
-
-            modelBuilder.Entity("OOAPInlämningsuppgift2.Entities.Door", b =>
-                {
-                    b.Navigation("Tags");
                 });
 #pragma warning restore 612, 618
         }

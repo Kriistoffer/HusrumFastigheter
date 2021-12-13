@@ -11,8 +11,8 @@ namespace OOAPInlämningsuppgift2.Configurations
         {
             builder.HasKey(t => t.Id);
 
-            builder.HasOne(x => x.Door)
-                .WithMany(x => x.Tags);
+            builder.HasMany(t => t.Doors)
+                .WithMany(d => d.Tags);
         }
     }
 }
