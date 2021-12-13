@@ -2,9 +2,11 @@
 {
     public class Door
     {
-        public Door()
+        public Door(string designation, string tagId)
         {
             Tags = new List<Tag>();
+            designation = Designation;
+            tagId = tagId;
         }
 
         public string Designation { get; set; }

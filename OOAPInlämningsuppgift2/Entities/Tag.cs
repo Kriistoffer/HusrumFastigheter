@@ -2,9 +2,11 @@
 {
     public class Tag
     {
-        public Tag()
+        public Tag(string id, string designation)
         {
             Doors = new List<Door>();
+            Id = id;
+            Designation = designation;
         }
         public string Id { get; set; }
         public string Designation { get; set; }
