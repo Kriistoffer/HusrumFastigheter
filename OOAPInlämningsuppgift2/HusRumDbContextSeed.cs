@@ -36,7 +36,7 @@ namespace OOAPInlämningsuppgift2
                 }
                 if (!await husRumDbContext.Tenants.AnyAsync())
                 {
-                    await husRumDbContext.Tenants.AddRangeAsync();
+                    await husRumDbContext.Tenants.AddRangeAsync(GetPreConfiguredTenants());
                     await husRumDbContext.SaveChangesAsync();
                 }
             }
@@ -93,7 +93,7 @@ namespace OOAPInlämningsuppgift2
                     new("0302", "Adam", "Andersen", "0302B"),
                     new("0302", "Kattis", "Backman", "0302C"),
                     new("0302", "Oscar", "Chen", "0302D"),
-                    new("VAKT", "", "", "VAKT01")
+                    new("VAKT", "Vaktmätare", "Vaktmätare", "VAKT01")
                 };
             }
             static IEnumerable<Logs> GetPreConfiguredLogs()
