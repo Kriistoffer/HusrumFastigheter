@@ -6,14 +6,14 @@
         public string ApartmentNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Tag Tag { get; set; }
-        public Tenant(int id, string apartmentNumber, string firstName, string lastName, Tag tag)
+        public string TagId { get; set; }
+        public Tenant(int id, string apartmentNumber, string firstName, string lastName, string tagId)
         {
             Id = id;
             ApartmentNumber = apartmentNumber;
             FirstName = firstName;
             LastName = lastName;
-            Tag = tag;
+            TagId = tagId;
         }
     }
 }

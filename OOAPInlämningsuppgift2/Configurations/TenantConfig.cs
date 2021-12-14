@@ -28,7 +28,7 @@ namespace OOAPInlämningsuppgift2.Configurations
                 .IsRequired();
 
             builder
-                .HasOne(t => t.Tag);
+                .Property(t => t.TagId);
         }
     }
 }

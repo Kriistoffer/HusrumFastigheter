@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OOAPInlämningsuppgift2;
 
@@ -11,9 +12,10 @@ using OOAPInlämningsuppgift2;
 namespace OOAPInlämningsuppgift2.Migrations
 {
     [DbContext(typeof(HusRumDbContext))]
-    partial class HusRumDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211214074015_TryingCreate")]
+    partial class TryingCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
