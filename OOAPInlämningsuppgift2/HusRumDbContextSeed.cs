@@ -73,7 +73,27 @@ namespace OOAPInlämningsuppgift2
             {
                 return new List<Tenant>
                 {
-
+                    new("0101", "Liam", "Jönsson", "0101A"),
+                    new("0102", "Elias", "Petterson", "0102A"),
+                    new("0102", "Wilma", "Johansson", "0102B"),
+                    new("0103", "Alicia", "Sanchez", "0103A"),
+                    new("0103", "Aaron", "Sanchez", "0103B"),
+                    new("0201", "Olivia", "Erlander", "0201A"),
+                    new("0201", "William", "Erlander", "0201B"),
+                    new("0201", "Alexander", "Erlander", "0201C"),
+                    new("0201", "Astrid", "Erlander", "0201D"),
+                    new("0202", "Lucas", "Adolfsson", "0202A"),
+                    new("0202", "Ebba", "Adolfsson", "0202B"),
+                    new("0202", "Lilly", "Adolfsson", "0202C"),
+                    new("0301", "Ella", "Ahlström", "0301A"),
+                    new("0301", "Alma", "Ahlström", "0301B"),
+                    new("0301", "Elsa", "Ahlström", "0301C"),
+                    new("0301", "Maja", "Ahlström", "0301D"),
+                    new("0302", "Noah", "Almgren", "0302A"),
+                    new("0302", "Adam", "Andersen", "0302B"),
+                    new("0302", "Kattis", "Backman", "0302C"),
+                    new("0302", "Oscar", "Chen", "0302D"),
+                    new("VAKT", "", "", "VAKT01")
                 };
             }
             static IEnumerable<Logs> GetPreConfiguredLogs()
