@@ -16,7 +16,7 @@ namespace OOAPInlämningsuppgift2
                 }
                 if (!await husRumDbContext.Doors.AnyAsync())
                 {
-                    await husRumDbContext.Doors.AddRangeAsync();
+                    await husRumDbContext.Doors.AddRangeAsync(GetPreConfiguredDoors());
                     await husRumDbContext.SaveChangesAsync();
                 }
                 if (!await husRumDbContext.Events.AnyAsync())
@@ -49,7 +49,12 @@ namespace OOAPInlämningsuppgift2
             {
                 return new List<Door>
                 {
-                    new("", "")
+                    new("LGH", "LGH0101"),
+                    new("BLK", "BLK0101"),
+                    new("SOPRUM", "001"),
+                    new("UT", "001"),
+                    new("TVÄTT", "001"),
+                    new("VAKT", "001"),
                 };
             }
             static IEnumerable<Event> GetPreConfiguredEvents()
