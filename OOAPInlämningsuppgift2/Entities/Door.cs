@@ -5,8 +5,8 @@
         public Door(string designation, string tagId)
         {
             Tags = new List<Tag>();
-            designation = Designation;
-            tagId = tagId;
+            Designation = designation;
+            TagId = tagId;
         }
 
         public string Designation { get; set; }
