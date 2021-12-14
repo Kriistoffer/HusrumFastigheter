@@ -77,7 +77,16 @@ namespace OOAPInlämningsuppgift2
             {
                 return new List<Logs>
                 {
-
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId"),
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId"),
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId"),
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId"),
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId"),
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId"),
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId"),
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId"),
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId"),
+                    new(3, new DateTime(1995, 01, 30, 08, 20, 20), "Des", "First", "Last", "Code", "Desc", "TagId")
                 };
             }
         }
