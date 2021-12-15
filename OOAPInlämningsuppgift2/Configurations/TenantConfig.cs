@@ -26,9 +26,6 @@ namespace OOAPInlämningsuppgift2.Configurations
             builder
                 .Property(t => t.LastName)
                 .IsRequired();
-
-            builder
-                .HasOne(t => t.Tag);
         }
     }
 }

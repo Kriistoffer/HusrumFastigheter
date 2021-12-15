@@ -9,13 +9,10 @@ namespace OOAPInlämningsuppgift2.Configurations
         public void Configure(EntityTypeBuilder<Door> builder)
         {
             builder
-                .HasKey(d => d.Designation);
+                .HasKey(d => d.Id);
 
-            builder.HasMany(d => d.Tags)
-                .WithMany(t => t.Doors);
-
-                
-
+            builder.Property(d => d.Id)
+                .ValueGeneratedOnAdd();
         }
     }
 }

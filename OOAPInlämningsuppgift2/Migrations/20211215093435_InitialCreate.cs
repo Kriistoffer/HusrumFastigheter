@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OOAPInlämningsuppgift2.Migrations
 {
-    public partial class InitalCreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,12 +13,13 @@ namespace OOAPInlämningsuppgift2.Migrations
                 name: "Doors",
                 columns: table => new
                 {
-                    Designation = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    TagId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DoorDesignation = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Doors", x => x.Designation);
+                    table.PrimaryKey("PK_Doors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -53,42 +54,6 @@ namespace OOAPInlämningsuppgift2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tags",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Designation = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tags", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "DoorTag",
-                columns: table => new
-                {
-                    DoorsDesignation = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    TagsId = table.Column<string>(type: "nvarchar(450)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DoorTag", x => new { x.DoorsDesignation, x.TagsId });
-                    table.ForeignKey(
-                        name: "FK_DoorTag_Doors_DoorsDesignation",
-                        column: x => x.DoorsDesignation,
-                        principalTable: "Doors",
-                        principalColumn: "Designation",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_DoorTag_Tags_TagsId",
-                        column: x => x.TagsId,
-                        principalTable: "Tags",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Tenants",
                 columns: table => new
                 {
@@ -97,34 +62,18 @@ namespace OOAPInlämningsuppgift2.Migrations
                     ApartmentNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TagId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Tag = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tenants", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Tenants_Tags_TagId",
-                        column: x => x.TagId,
-                        principalTable: "Tags",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DoorTag_TagsId",
-                table: "DoorTag",
-                column: "TagsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tenants_TagId",
-                table: "Tenants",
-                column: "TagId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DoorTag");
+                name: "Doors");
 
             migrationBuilder.DropTable(
                 name: "Events");
@@ -134,12 +83,6 @@ namespace OOAPInlämningsuppgift2.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tenants");
-
-            migrationBuilder.DropTable(
-                name: "Doors");
-
-            migrationBuilder.DropTable(
-                name: "Tags");
         }
     }
 }

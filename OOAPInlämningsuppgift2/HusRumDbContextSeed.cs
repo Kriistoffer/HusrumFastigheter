@@ -16,12 +16,12 @@ namespace OOAPInlämningsuppgift2
                 }
                 if (!await husRumDbContext.Doors.AnyAsync())
                 {
-                    await husRumDbContext.Doors.AddRangeAsync();
+                    await husRumDbContext.Doors.AddRangeAsync(GetPreConfiguredDoors());
                     await husRumDbContext.SaveChangesAsync();
                 }
                 if (!await husRumDbContext.Events.AnyAsync())
                 {
-                    await husRumDbContext.Events.AddRangeAsync();
+                    await husRumDbContext.Events.AddRangeAsync(GetPreConfiguredEvents());
                     await husRumDbContext.SaveChangesAsync();
                 }
                 if (!await husRumDbContext.Logs.AnyAsync())
@@ -29,14 +29,9 @@ namespace OOAPInlämningsuppgift2
                     await husRumDbContext.Logs.AddRangeAsync();
                     await husRumDbContext.SaveChangesAsync();
                 }
-                if (!await husRumDbContext.Tags.AnyAsync())
-                {
-                    await husRumDbContext.Tags.AddRangeAsync();
-                    await husRumDbContext.SaveChangesAsync();
-                }
                 if (!await husRumDbContext.Tenants.AnyAsync())
                 {
-                    await husRumDbContext.Tenants.AddRangeAsync();
+                    await husRumDbContext.Tenants.AddRangeAsync(GetPreConfiguredTenants());
                     await husRumDbContext.SaveChangesAsync();
                 }
             }
@@ -49,28 +44,61 @@ namespace OOAPInlämningsuppgift2
             {
                 return new List<Door>
                 {
-                    new("", "")
+                    new("UT"),
+                    new("SOPRUM"),
+                    new("TVÄTT"),
+                    new("VAKT"),
+                    new("LGH0101"),
+                    new("BLK0101"),
+                    new("LGH0102"),
+                    new("BLK0102"),
+                    new("LGH0103"),
+                    new("BLK0103"),
+                    new("LGH0201"),
+                    new("BLK0201"),
+                    new("LGH0202"),
+                    new("BLK0202"),
+                    new("LGH0301"),
+                    new("BLK0301"),
+                    new("LGH0302"),
+                    new("BLK0302"),
                 };
             }
             static IEnumerable<Event> GetPreConfiguredEvents()
             {
                 return new List<Event>
                 {
-
-                };
-            }
-            static IEnumerable<Tag> GetPreConfiguredTags()
-            {
-                return new List<Tag>
-                {
-
+                    new("DÖUT", "Dörr har öppnats utifrån"),
+                    new("DÖIN", "Dörr har öppnats inifrån"),
+                    new("FDIN", "Fel dörr - Gäst har försökt öppna en dörr utan tillstånd"),
+                    new("FDUT", "Fel dörr - Person har försökt gå ut från en dör där taggen ej tillåter")
                 };
             }
             static IEnumerable<Tenant> GetPreConfiguredTenants()
             {
                 return new List<Tenant>
                 {
-
+                    new("0101", "Liam", "Jönsson","0101A"),
+                    new("0102", "Elias", "Petterson", "0102A"),
+                    new("0102", "Wilma", "Johansson", "0102B"),
+                    new("0103", "Alicia", "Sanchez", "0103A"),
+                    new("0103", "Aaron", "Sanchez", "0103B"),
+                    new("0201", "Olivia", "Erlander", "0201A"),
+                    new("0201", "William", "Erlander", "0201B"),
+                    new("0201", "Alexander", "Erlander", "0201C"),
+                    new("0201", "Astrid", "Erlander", "0201D"),
+                    new("0202", "Lucas", "Adolfsson", "0202A"),
+                    new("0202", "Ebba", "Adolfsson", "0202B"),
+                    new("0202", "Lilly", "Adolfsson", "0202C"),
+                    new("0301", "Ella", "Ahlström", "0301A"),
+                    new("0301", "Alma", "Ahlström", "0301B"),
+                    new("0301", "Elsa", "Ahlström", "0301C"),
+                    new("0301", "Maja", "Ahlström", "0301D"),
+                    new("0302", "Noah", "Almgren", "0302A"),
+                    new("0302", "Adam", "Andersen", "0302B"),
+                    new("0302", "Kattis", "Backman", "0302C"),
+                    new("0302", "Oscar", "Chen", "0302D"),
+                    new("VAKT", "Argus", "Filch", "VAKT01")
                 };
             }
             static IEnumerable<Logs> GetPreConfiguredLogs()
