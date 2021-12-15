@@ -13,7 +13,6 @@ namespace OOAPInlämningsuppgift2
         public DbSet<Door> Doors { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Logs> Logs { get; set; }
-        public DbSet<Tag> Tags { get; set; }
         public DbSet<Tenant> Tenants { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
@@ -21,9 +20,7 @@ namespace OOAPInlämningsuppgift2
             modelbuilder.ApplyConfiguration(new DoorConfig());
             modelbuilder.ApplyConfiguration(new EventConfig());
             modelbuilder.ApplyConfiguration(new LogConfig());
-            modelbuilder.ApplyConfiguration(new TagConfig());
             modelbuilder.ApplyConfiguration(new TenantConfig());
-
             //foreach (var relationship in modelbuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             //{
             //    relationship.DeleteBehavior = DeleteBehavior.Restrict;

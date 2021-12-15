@@ -1,10 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace OOAPInlämningsuppgift2.Entities
+﻿namespace OOAPInlämningsuppgift2.Entities
 {
     public class Logs
     {
-        [Key]
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
         public string Designation { get; set; }

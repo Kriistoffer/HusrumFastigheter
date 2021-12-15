@@ -1,18 +1,16 @@
-﻿namespace OOAPInlämningsuppgift2.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace OOAPInlämningsuppgift2.Entities
 {
     public class Door
     {
-        public Door(string designation, string tagId)
+        public int Id { get; set; }
+        public string DoorDesignation { get; set; }
+
+        public Door(string doorDesignation)
         {
-            Tags = new List<Tag>();
-            Designation = designation;
-            TagId = tagId;
+            DoorDesignation = doorDesignation;
         }
-
-        public string Designation { get; set; }
-        public string TagId { get; set; }
-        public ICollection<Tag> Tags { get; set; }
-
-        
     }
 }

@@ -1,17 +1,22 @@
-﻿namespace OOAPInlämningsuppgift2.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace OOAPInlämningsuppgift2.Entities
 {
     public class Tenant
     {
+        public int Id { get; set; }
         public string ApartmentNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string TagId { get; set; }
-        public Tenant(string apartmentNumber, string firstName, string lastName, string tagId)
+        public string Tag { get; set; }
+
+        public Tenant(string apartmentNumber, string firstName, string lastName, string tag)
         {
             ApartmentNumber = apartmentNumber;
             FirstName = firstName;
             LastName = lastName;
-            TagId = tagId;
+            Tag = tag;
         }
     }
 }
