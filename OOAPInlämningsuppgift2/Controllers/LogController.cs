@@ -114,6 +114,19 @@ namespace OOAPInlämningsuppgift2.Controllers
                 return Ok(tenantLogs);
             }
         }
+        [HttpPost("Log_Entry")]
+        public ActionResult<Logs> LogEntry(string designation, string code, string tagId)
+        {
+            var tenant = _husRumDbContext.Tenants.Where(t => t.Tag == tagId).FirstOrDefault();
+            var doorDesignation = _husRumDbContext.Doors.Where(d => d.DoorDesignation == designation).FirstOrDefault();
+            var eventCode = _husRumDbContext.Events.Where(e => e.Code == code).FirstOrDefault();
+
+            var log = new Logs(DateTime.Now, doorDesignation.DoorDesignation, tenant.FirstName, tenant.LastName, eventCode.Code, eventCode.Description, tenant.Tag);
+
+            _husRumDbContext.Logs.AddAsync(log);
+            _husRumDbContext.SaveChanges();
+            return Ok(log);
+        }
 
     }
 }
