@@ -29,11 +29,6 @@ namespace OOAPInlämningsuppgift2
                     await husRumDbContext.Logs.AddRangeAsync();
                     await husRumDbContext.SaveChangesAsync();
                 }
-                if (!await husRumDbContext.Tags.AnyAsync())
-                {
-                    await husRumDbContext.Tags.AddRangeAsync(GetPreConfiguredTags());
-                    await husRumDbContext.SaveChangesAsync();
-                }
                 if (!await husRumDbContext.Tenants.AnyAsync())
                 {
                     await husRumDbContext.Tenants.AddRangeAsync(GetPreConfiguredTenants());
@@ -49,12 +44,24 @@ namespace OOAPInlämningsuppgift2
             {
                 return new List<Door>
                 {
-                    new("LGH", "LGH0101"),
-                    new("BLK", "BLK0101"),
-                    new("SOPRUM", "001"),
-                    new("UT", "001"),
-                    new("TVÄTT", "001"),
-                    new("VAKT", "001"),
+                    new("UT"),
+                    new("SOPRUM"),
+                    new("TVÄTT"),
+                    new("VAKT"),
+                    new("LGH0101"),
+                    new("BLK0101"),
+                    new("LGH0102"),
+                    new("BLK0102"),
+                    new("LGH0103"),
+                    new("BLK0103"),
+                    new("LGH0201"),
+                    new("BLK0201"),
+                    new("LGH0202"),
+                    new("BLK0202"),
+                    new("LGH0301"),
+                    new("BLK0301"),
+                    new("LGH0302"),
+                    new("BLK0302"),
                 };
             }
             static IEnumerable<Event> GetPreConfiguredEvents()
@@ -67,39 +74,11 @@ namespace OOAPInlämningsuppgift2
                     new("FDUT", "Fel dörr - Person har försökt gå ut från en dör där taggen ej tillåter")
                 };
             }
-            static IEnumerable<Tag> GetPreConfiguredTags()
-            {
-                return new List<Tag>
-                {
-                    new("0101A","LGH"),
-                    new("0102A","LGH"),
-                    new("0102B","LGH"),
-                    new("0103A","LGH"),
-                    new("0103B","LGH"),
-                    new("0201A","LGH"),
-                    new("0201B","LGH"),
-                    new("0201C","LGH"),
-                    new("0201D","LGH"),
-                    new("0202A","LGH"),
-                    new("0202B","LGH"),
-                    new("0202C","LGH"),
-                    new("0301A","LGH"),
-                    new("0301B","LGH"),
-                    new("0301C","LGH"),
-                    new("0301D","LGH"),
-                    new("0302A","LGH"),
-                    new("0302B","LGH"),
-                    new("0302C","LGH"),
-                    new("0302D","LGH"),
-                    new("VAKT01","VAKT"),
-
-                };
-            }
             static IEnumerable<Tenant> GetPreConfiguredTenants()
             {
                 return new List<Tenant>
                 {
-                    new("0101", "Liam", "Jönsson", "0101A"),
+                    new("0101", "Liam", "Jönsson","0101A"),
                     new("0102", "Elias", "Petterson", "0102A"),
                     new("0102", "Wilma", "Johansson", "0102B"),
                     new("0103", "Alicia", "Sanchez", "0103A"),
@@ -119,7 +98,7 @@ namespace OOAPInlämningsuppgift2
                     new("0302", "Adam", "Andersen", "0302B"),
                     new("0302", "Kattis", "Backman", "0302C"),
                     new("0302", "Oscar", "Chen", "0302D"),
-                    new("VAKT", "Vaktmätare", "Vaktmätare", "VAKT01")
+                    new("VAKT", "Argus", "Filch", "VAKT01")
                 };
             }
             static IEnumerable<Logs> GetPreConfiguredLogs()
