@@ -26,7 +26,7 @@ namespace OOAPInlämningsuppgift2
                 }
                 if (!await husRumDbContext.Logs.AnyAsync())
                 {
-                    await husRumDbContext.Logs.AddRangeAsync();
+                    await husRumDbContext.Logs.AddRangeAsync(GetPreConfiguredLogs());
                     await husRumDbContext.SaveChangesAsync();
                 }
                 if (!await husRumDbContext.Tenants.AnyAsync())
@@ -105,7 +105,16 @@ namespace OOAPInlämningsuppgift2
             {
                 return new List<Logs>
                 {
-
+                    new(new DateTime(2018, 01, 30, 08, 20, 20), "LGH0101", "Liam", "Jönsson", "DÖIN", "Dörr har öppnats inifrån", "0101A"),
+                    new(new DateTime(2019, 03, 12, 14, 01, 59), "LGH0302", "Alexander", "Erlander", "FDUT", "Fel dörr - Person har försökt gå ut från en dör där taggen ej tillåter", "0201C"),
+                    new(new DateTime(2020, 01, 21, 10, 25, 31), "LGH0201", "William", "Erlander", "DÖUT", "Dörr har öppnats utifrån", "0201B"),
+                    new(new DateTime(2020, 02, 15, 05, 29, 29), "LGH0102", "Elias", "Petterson", "DÖIN", "Dörr har öppnats inifrån", "0102A"),
+                    new(new DateTime(2020, 03, 28, 03, 32, 52), "BLK0201", "Astrid", "Erlander", "DÖUT", "Dörr har öppnats utifrån", "0201D"),
+                    new(new DateTime(2021, 01, 29, 12, 46, 01), "BLK0301", "Argus", "Filch", "DÖIN", "Dörr har öppnats inifrån", "VAKT01"),
+                    new(new DateTime(2021, 05, 01, 18, 39, 09), "SOPRUM", "Olivia", "Erlander", "DÖUT", "Dörr har öppnats utifrån", "0201A"),
+                    new(new DateTime(2021, 07, 05, 21, 02, 24), "BLK0103", "Aaron", "Sanchez", "FDIN", "Fel dörr - Gäst har försökt öppna en dörr utan tillstånd", "0103B"),
+                    new(new DateTime(2021, 07, 23, 13, 24, 21), "TVÄTT", "Lilly", "Adolfsson", "DÖIN", "Dörr har öppnats inifrån", "0202C"),
+                    new(new DateTime(2021, 12, 31, 23, 58, 56), "VAKT", "Argus", "Filch", "DÖUT", "Dörr har öppnats utifrån", "VAKT01")
                 };
             }
         }

@@ -11,9 +11,8 @@
         public string Description { get; set; }
         public string TagId { get; set; }
 
-        public Logs(int id, DateTime dateTime, string designation, string firstName, string lastName, string code, string description, string tagId)
+        public Logs( DateTime dateTime, string designation, string firstName, string lastName, string code, string description, string tagId)
         {
-            Id = id;
             DateTime = dateTime;
             Designation = designation;
             FirstName = firstName;
