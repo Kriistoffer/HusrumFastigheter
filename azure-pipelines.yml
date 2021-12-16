@@ -35,6 +35,7 @@ stages:
         includeLatestTag: true
         useDefaultContext: false
         buildContext: '.'
+        tag: donollario/firstImage
     - task: Docker@1
       displayName: 'Push the Docker image to Dockerhub'
       inputs:
