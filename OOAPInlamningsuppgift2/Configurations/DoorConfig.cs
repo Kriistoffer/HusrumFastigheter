@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using OOAPInlämningsuppgift2.Entities;
+using OOAPInlamningsuppgift2.Entities;
 
-namespace OOAPInlämningsuppgift2.Configurations
+namespace OOAPInlamningsuppgift2.Configurations
 {
     public class DoorConfig : IEntityTypeConfiguration<Door>
     {

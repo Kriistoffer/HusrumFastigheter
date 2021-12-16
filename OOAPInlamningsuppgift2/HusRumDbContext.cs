@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OOAPInlämningsuppgift2.Configurations;
-using OOAPInlämningsuppgift2.Entities;
+using OOAPInlamningsuppgift2.Configurations;
+using OOAPInlamningsuppgift2.Entities;
 using System.Reflection;
 
-namespace OOAPInlämningsuppgift2
+namespace OOAPInlamningsuppgift2
 {
     public class HusRumDbContext : DbContext
     {

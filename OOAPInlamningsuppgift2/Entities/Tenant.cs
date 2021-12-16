@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace OOAPInlämningsuppgift2.Entities
+namespace OOAPInlamningsuppgift2.Entities
 {
     public class Tenant
     {
