@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["OOAPInlämningsuppgift2/OOAPInlämningsuppgift2.csproj", "OOAPInlämningsuppgift2/"]
-RUN dotnet restore "OOAPInlämningsuppgift2/OOAPInlämningsuppgift2.csproj"
+COPY ["OOAPInlamningsuppgift2/OOAPInlamningsuppgift2.csproj", "OOAPInlamningsuppgift2/"]
+RUN dotnet restore "OOAPInlamningsuppgift2/OOAPInlamningsuppgift2.csproj"
 COPY . .
-WORKDIR "/src/OOAPInlämningsuppgift2"
-RUN dotnet build "OOAPInlämningsuppgift2.csproj" -c Release -o /app/build
+WORKDIR "/src/OOAPInlamningsuppgift2"
+RUN dotnet build "OOAPInlamningsuppgift2.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "OOAPInlämningsuppgift2.csproj" -c Release -o /app/publish
+RUN dotnet publish "OOAPInlamningsuppgift2.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "OOAPInlämningsuppgift2.dll"]
+ENTRYPOINT ["dotnet", "OOAPInlamningsuppgift2.dll"]
