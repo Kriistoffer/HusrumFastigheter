@@ -12,7 +12,7 @@ resources:
 - repo: self
 
 pool:
-  MyPool: 'BurtMacklin'
+ name: MyPool
 
 variables:
   ImageName: '$(Build.BuildId)'
