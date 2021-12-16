@@ -12,7 +12,7 @@ resources:
 - repo: self
 
 pool:
-  - MyPool
+  vmImage: 'ubuntu-latest'
 
 variables:
   ImageName: '$(Build.BuildId)'
