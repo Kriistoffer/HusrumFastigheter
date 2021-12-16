@@ -21,6 +21,7 @@ namespace OOAPInlämningsuppgift2
             modelbuilder.ApplyConfiguration(new EventConfig());
             modelbuilder.ApplyConfiguration(new LogConfig());
             modelbuilder.ApplyConfiguration(new TenantConfig());
+
             //foreach (var relationship in modelbuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             //{
             //    relationship.DeleteBehavior = DeleteBehavior.Restrict;
