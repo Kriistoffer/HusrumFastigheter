@@ -36,7 +36,8 @@ stages:
         useDefaultContext: false
         containerRegistry: $(dockerRegistryServiceConnection)
         buildContext: '.'
-        tag: husrumfastigheter
+        tags: |
+            $(tag)
     - task: Docker@1
       displayName: 'Push the Docker image to Dockerhub'
       inputs:
@@ -46,5 +47,4 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
-        image_tags: husrumfastigheter
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
