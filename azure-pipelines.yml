@@ -13,8 +13,8 @@ pool:
  name: MyPool
 
 variables:
-  ImageName: 'husrum-docker'
-  tag: husrum-docker
+  ImageName: '$(Build.BuildId)'
+  tag: husrumfastigheter
 
 stages:
 - stage: Build
