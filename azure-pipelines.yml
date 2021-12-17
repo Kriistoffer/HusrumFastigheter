@@ -45,5 +45,5 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: hub.docker.com/r/donollario/husrum-docker
-        tags: latest
+        image_tags: latest
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
