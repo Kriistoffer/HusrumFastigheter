@@ -31,6 +31,7 @@ stages:
         command: Build an image
         dockerfile: '**/Dockerfile'
         imageName: $(ImageName)
+        repository: husrum-docker
         includeLatestTag: true
         useDefaultContext: false
         buildContext: '.'
@@ -43,7 +44,7 @@ stages:
         dockerRegistryEndpoint: 'Docker Hub'
         command: push
         docker_image_tag: latest
-        repository: $(imageRepository)
+        repository: husrum-docker
         dockerfile: '**/Dockerfile'
         tags: |
             $(tag)
