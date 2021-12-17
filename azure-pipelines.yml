@@ -13,7 +13,7 @@ pool:
  name: MyPool
 
 variables:
-  ImageName: '$(Build.BuildId)'
+  ImageName: 'kattbullar/$(Build.BuildId)'
   tag: husrumfastigheter
 
 stages:
@@ -27,7 +27,7 @@ stages:
       displayName: Build the Docker image
       inputs:
         containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'Docker Hub'
+        dockerRegistryEndpoint: 'Docker Hub2'
         command: Build an image
         dockerfile: '**/Dockerfile'
         imageName: $(ImageName)
@@ -41,7 +41,7 @@ stages:
       displayName: 'Push the Docker image to Dockerhub'
       inputs:
         containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'Docker Hub'
+        dockerRegistryEndpoint: 'Docker Hub2'
         command: push
         docker_image_tag: latest
         repository: husrum-docker
