@@ -13,14 +13,13 @@ pool:
  name: MyPool
 
 variables:
-  ImageName: 'kattbullar/$(Build.BuildId)'
-  tag: husrumfastigheter
+  ImageName: 'kattbullar/husrumfastigheter:$(Build.BuildId)'
 
 stages:
 - stage: Build
   displayName: Build image
   jobs:
-  - job: Build
+  - job: DockerImage
     displayName: Build and push Docker image
     steps:
     - task: Docker@1
@@ -31,21 +30,15 @@ stages:
         command: Build an image
         dockerfile: '**/Dockerfile'
         imageName: $(ImageName)
-        repository: husrum-docker
         includeLatestTag: true
         useDefaultContext: false
         buildContext: '.'
-        tags: |
-            $(tag)
+
     - task: Docker@1
       displayName: 'Push the Docker image to Dockerhub'
       inputs:
         containerregistrytype: 'Container Registry'
         dockerRegistryEndpoint: 'Docker Hub2'
-        command: push
-        docker_image_tag: latest
-        repository: husrum-docker
-        dockerfile: '**/Dockerfile'
-        tags: |
-            $(tag)
+        command: 'Push an image'
+        imageName: '$(ImageName)'
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
