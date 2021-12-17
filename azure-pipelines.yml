@@ -42,9 +42,8 @@ stages:
         containerregistrytype: 'Container Registry'
         dockerRegistryEndpoint: 'Docker Hub'
         command: push
-        dockerfile: '**/Dockerfile'
         repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
+        dockerfile: '**/Dockerfile'
         tags: |
             $(tag)
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
