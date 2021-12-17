@@ -33,7 +33,6 @@ stages:
         imageName: $(ImageName)
         includeLatestTag: true
         useDefaultContext: false
-        containerRegistry: $(dockerRegistryServiceConnection)
         buildContext: '.'
         tags: |
             $(tag)
@@ -45,7 +44,6 @@ stages:
         command: push
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
             $(tag)
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
