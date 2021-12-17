@@ -34,6 +34,7 @@ stages:
         imageName: $(ImageName)
         includeLatestTag: true
         useDefaultContext: false
+        containerRegistry: hub.docker.com/r/donollario/husrum-docker
         buildContext: '.'
         tag: latest
     - task: Docker@1
