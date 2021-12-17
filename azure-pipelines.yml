@@ -38,7 +38,7 @@ stages:
         buildContext: '.'
         tags: |
             $(tag)
-    - task: Docker@2
+    - task: Docker@1
       displayName: 'Push the Docker image to Dockerhub'
       inputs:
         containerregistrytype: 'Container Registry'
