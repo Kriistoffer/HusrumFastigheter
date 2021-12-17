@@ -39,8 +39,8 @@ stages:
     - task: Docker@1
       displayName: 'Push the Docker image to Dockerhub'
       inputs:
-        containerregistrytype: 'Docker Registry'
+        containerregistrytype: 'Container Registry'
         dockerRegistryEndpoint: 'Docker Hub'
-        command: 'Push an image'
+        command: 'BuildAndPush'
         imageName: '$(ImageName)'
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
