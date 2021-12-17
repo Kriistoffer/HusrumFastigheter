@@ -23,11 +23,6 @@ stages:
   - job: Build
     displayName: Build and push Docker image
     steps:
-    -task: Docker@1
-        displayName: access to Docker Hub
-        inputs:
-        command: login
-        containerRegistry: dockerRegistryServiceConnection
     - task: Docker@1
       displayName: Build the Docker image
       inputs:
@@ -42,11 +37,6 @@ stages:
         buildContext: '.'
         tags: |
             $(tag)
-     -task: Docker@1
-        displayName: access to Docker Hub
-        inputs:
-        command: login
-        containerRegistry: dockerRegistryServiceConnection
     - task: Docker@1
       displayName: 'Push the Docker image to Dockerhub'
       inputs:
