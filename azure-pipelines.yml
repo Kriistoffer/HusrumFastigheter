@@ -15,7 +15,7 @@ pool:
  name: MyPool
 
 variables:
-  ImageName: '$(Build.BuildId)'
+  tag: '$(Build.BuildId)'
 
 stages:
 - stage: Build
