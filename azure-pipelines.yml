@@ -28,6 +28,7 @@ stages:
       inputs:
         containerregistrytype: 'Container Registry'
         dockerRegistryEndpoint: 'Docker Hub'
+        login: -u kattbullar -p testarpush
         command: Build an image
         dockerfile: '**/Dockerfile'
         imageName: $(ImageName)
@@ -41,6 +42,7 @@ stages:
       inputs:
         containerregistrytype: 'Container Registry'
         dockerRegistryEndpoint: 'Docker Hub'
+        login: -u kattbullar -p testarpush
         command: push
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
