@@ -34,7 +34,7 @@ stages:
         imageName: $(ImageName)
         includeLatestTag: true
         useDefaultContext: false
-        containerRegistry: hub.docker.com/r/donollario/husrum-docker
+        containerRegistry: $(dockerRegistryServiceConnection)
         buildContext: '.'
         tag: husrumfastigheter
     - task: Docker@1
@@ -45,6 +45,6 @@ stages:
         command: 'push'
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: hub.docker.com/r/donollario/husrum-docker
+        containerRegistry: $(dockerRegistryServiceConnection)
         image_tags: husrumfastigheter
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
