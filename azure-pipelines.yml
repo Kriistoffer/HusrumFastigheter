@@ -8,15 +8,13 @@ trigger:
     include:
       - main
 
-resources:
-- repo: self
 
 pool:
  name: MyPool
 
 variables:
-  ImageName: '$(Build.BuildId)'
-  tag: $(Build.BuildId)
+  ImageName: 'husrum-docker'
+  tag: husrum-docker
 
 stages:
 - stage: Build
@@ -44,7 +42,7 @@ stages:
       inputs:
         containerregistrytype: 'Container Registry'
         dockerRegistryEndpoint: 'Docker Hub'
-        command: push image
+        command: push
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
