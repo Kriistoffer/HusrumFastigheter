@@ -24,7 +24,7 @@ stages:
     displayName: Build and push Docker image
     steps:
     -task: Docker@1
-        displayName: Login to Docker Hub
+        displayName: access to Docker Hub
         inputs:
         command: login
         containerRegistry: dockerRegistryServiceConnection
@@ -43,7 +43,7 @@ stages:
         tags: |
             $(tag)
      -task: Docker@1
-        displayName: Login to Docker Hub
+        displayName: access to Docker Hub
         inputs:
         command: login
         containerRegistry: dockerRegistryServiceConnection
