@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OOAPInlämningsuppgift2.Entities;
+using OOAPInlamningsuppgift2.Entities;
 using System.Linq;
 
-namespace OOAPInlämningsuppgift2.Controllers
+namespace OOAPInlamningsuppgift2.Controllers
 {
     [ApiController]
     [Route("[controller]")]

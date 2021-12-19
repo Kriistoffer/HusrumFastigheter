@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace OOAPInlämningsuppgift2
+namespace OOAPInlamningsuppgift2
 {
     public static class StartupSetup
     {

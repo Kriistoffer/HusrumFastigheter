@@ -1,4 +1,4 @@
-﻿namespace OOAPInlämningsuppgift2.Entities
+﻿namespace OOAPInlamningsuppgift2.Entities
 {
     public class Event
     {

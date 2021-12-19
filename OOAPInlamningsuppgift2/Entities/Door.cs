@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OOAPInlämningsuppgift2.Entities
+namespace OOAPInlamningsuppgift2.Entities
 {
     public class Door
     {

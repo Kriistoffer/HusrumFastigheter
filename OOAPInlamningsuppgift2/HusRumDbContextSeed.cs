@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OOAPInlämningsuppgift2.Entities;
+using OOAPInlamningsuppgift2.Entities;
 
-namespace OOAPInlämningsuppgift2
+namespace OOAPInlamningsuppgift2
 {
     public class HusRumDbContextSeed
     {

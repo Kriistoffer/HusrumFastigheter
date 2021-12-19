@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using OOAPInlämningsuppgift2;
+using OOAPInlamningsuppgift2;
 
 var builder = WebApplication.CreateBuilder(args);
 
