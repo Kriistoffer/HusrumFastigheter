@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OOAPInlamningsuppgift2.Entities
 {
+    // This is the entity for door
     public class Door
     {
         public int Id { get; set; }

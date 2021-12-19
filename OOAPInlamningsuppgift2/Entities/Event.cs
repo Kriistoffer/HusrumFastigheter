@@ -1,5 +1,6 @@
 ﻿namespace OOAPInlamningsuppgift2.Entities
 {
+    // This is the entity for Event
     public class Event
     {
         public string Code { get; set; }

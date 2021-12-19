@@ -1,5 +1,6 @@
 ﻿namespace OOAPInlamningsuppgift2.Entities
 {
+    // This is the entity for Logs
     public class Logs
     {
         public int Id { get; set; }

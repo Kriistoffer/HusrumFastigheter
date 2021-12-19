@@ -3,11 +3,13 @@ using OOAPInlamningsuppgift2.Entities;
 
 namespace OOAPInlamningsuppgift2
 {
+    //Seed to database
     public class HusRumDbContextSeed
     {
         public static async Task SeedAsync(HusRumDbContext husRumDbContext, int retry = 0)
         {
             var retryForAvailability = retry;
+            //Adds the seed to the database if it doesn't contain anything already
             try
             {
                 if (husRumDbContext.Database.IsSqlServer())

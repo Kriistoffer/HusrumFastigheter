@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OOAPInlamningsuppgift2.Entities
 {
+    // This is the entity for Tenant
     public class Tenant
     {
         public int Id { get; set; }

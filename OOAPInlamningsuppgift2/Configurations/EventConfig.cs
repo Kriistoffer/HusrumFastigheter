@@ -4,6 +4,7 @@ using OOAPInlamningsuppgift2.Entities;
 
 namespace OOAPInlamningsuppgift2.Configurations
 {
+    //Entity framework configuration for event 
     public class EventConfig : IEntityTypeConfiguration<Event>
     {
         public void Configure(EntityTypeBuilder<Event> builder)

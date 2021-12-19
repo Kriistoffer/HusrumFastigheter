@@ -4,6 +4,7 @@ using OOAPInlamningsuppgift2.Entities;
 
 namespace OOAPInlamningsuppgift2.Configurations
 {
+    //Entity framework configuration for Log 
     public class LogConfig : IEntityTypeConfiguration<Logs>
     {
         public void Configure(EntityTypeBuilder<Logs> builder)
