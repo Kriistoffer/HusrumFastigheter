@@ -4,6 +4,7 @@ using OOAPInlamningsuppgift2.Entities;
 
 namespace OOAPInlamningsuppgift2.Configurations
 {
+    //Entity framework configuration for door 
     public class DoorConfig : IEntityTypeConfiguration<Door>
     {
         public void Configure(EntityTypeBuilder<Door> builder)

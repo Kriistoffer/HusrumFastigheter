@@ -26,6 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//Allows the seed to be used when starting the application
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;

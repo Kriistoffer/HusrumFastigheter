@@ -4,6 +4,7 @@ using OOAPInlamningsuppgift2.Entities;
 
 namespace OOAPInlamningsuppgift2.Configurations
 {
+    //Entity framework configuration for tenant 
     public class TenantConfig : IEntityTypeConfiguration<Tenant>
     {
         public void Configure(EntityTypeBuilder<Tenant> builder)
