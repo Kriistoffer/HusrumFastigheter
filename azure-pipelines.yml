@@ -8,38 +8,37 @@ trigger:
     include:
       - main
 
-resources:
-- repo: self
 
 pool:
  name: MyPool
 
 variables:
-  ImageName: '$(Build.BuildId)'
+  ImageName: 'kattbullar/husrumfastigheter:$(Build.BuildId)'
 
 stages:
 - stage: Build
   displayName: Build image
   jobs:
-  - job: Build
+  - job: DockerImage
     displayName: Build and push Docker image
     steps:
     - task: Docker@1
       displayName: Build the Docker image
       inputs:
         containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'Docker Hub'
+        dockerRegistryEndpoint: 'Docker Hub2'
         command: Build an image
         dockerfile: '**/Dockerfile'
         imageName: $(ImageName)
         includeLatestTag: true
         useDefaultContext: false
         buildContext: '.'
+
     - task: Docker@1
       displayName: 'Push the Docker image to Dockerhub'
       inputs:
         containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'Docker Hub'
+        dockerRegistryEndpoint: 'Docker Hub2'
         command: 'Push an image'
         imageName: '$(ImageName)'
       condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
