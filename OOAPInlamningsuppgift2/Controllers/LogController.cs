@@ -18,7 +18,7 @@ namespace OOAPInlamningsuppgift2.Controllers
         public ActionResult<List<Logs>> FindEntriesByDoor(string doorDesignation, int maxEntries = 20)
         {
             var doorLogs = _husRumDbContext.Logs.Where(d => d.Designation == doorDesignation).ToList();
-            if (doorLogs == null)
+            if (doorLogs.Count == 0)
             {
                 return NotFound("Could not find entries");
             } 
@@ -38,7 +38,7 @@ namespace OOAPInlamningsuppgift2.Controllers
         public ActionResult<List<Logs>> FindEntriesByEvent(string eventCode, int maxEntries = 20)
         {
             var eventLogs = _husRumDbContext.Logs.Where(e => e.Code  == eventCode).ToList();
-            if (eventLogs == null)
+            if (eventLogs.Count == 0)
             {
                 return NotFound("Could not find entries");
             }
@@ -58,7 +58,7 @@ namespace OOAPInlamningsuppgift2.Controllers
         public ActionResult<List<Logs>> FindEntriesByLocation(string location, int maxEntries = 20)
         {
             var locationLogs = _husRumDbContext.Logs.Where(l => l.Designation.Contains(location)).ToList();
-            if (locationLogs == null)
+            if (locationLogs.Count == 0)
             {
                 return NotFound("Could not find entries");
             }
@@ -79,7 +79,7 @@ namespace OOAPInlamningsuppgift2.Controllers
         public ActionResult<List<Logs>> FindEntriesByTag(string tag, int maxEntries = 20)
         {
             var tagLogs = _husRumDbContext.Logs.Where(t => t.TagId == tag).ToList();
-            if (tagLogs == null)
+            if (tagLogs.Count == 0)
             {
                 return NotFound("Could not find entries");
             }
@@ -99,7 +99,7 @@ namespace OOAPInlamningsuppgift2.Controllers
         public ActionResult<List<Logs>> FindEntriesByTenant(string firstName, string lastName, int maxEntries = 20)
         {
             var tenantLogs = _husRumDbContext.Logs.Where(t => t.FirstName == firstName && t.LastName == lastName).ToList();
-            if (tenantLogs == null)
+            if (tenantLogs.Count == 0)
             {
                 return NotFound("Could not find entries");
             }
