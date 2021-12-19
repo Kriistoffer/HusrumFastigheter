@@ -18,7 +18,7 @@ namespace OOAPInlamningsuppgift2.Controllers
         public ActionResult<List<Tenant>> ListTenantAt(string apartmentNumber, int maxEntries = 20)
         {
             var tenantList = _husRumDbContext.Tenants.Where(t => t.ApartmentNumber == apartmentNumber).ToList();
-            if (tenantList == null)
+            if (tenantList.Count == 0)
             {
                 return NotFound("Could not find entries");
             }
